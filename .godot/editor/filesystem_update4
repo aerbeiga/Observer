@@ -1,0 +1,9 @@
+res://default_env.tres
+res://scenes/menu.tscn
+res://scripts/menu_expand_or_collapse.gd
+res://settings.tscn
+res://scripts/menu_open_bilibili.gd
+res://scripts/menu_menu.gd
+res://docs/author_words.txt
+res://scenes/level_selector.tscn
+res://scenes/level_selector_level_selector.gd

@@ -1,0 +1,111 @@
+[gd_scene load_steps=5 format=3 uid="uid://5qbrbs6ko1b7"]
+
+[ext_resource type="Texture2D" uid="uid://bd1oe774ci3ps" path="res://imgs/bg/menu.png" id="1"]
+[ext_resource type="Script" path="res://scripts/menu_expand_or_collapse.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/menu_menu.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/menu_open_bilibili.gd" id="4_dmx0f"]
+
+[node name="menu" type="Control"]
+editor_description = "菜单界面"
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3")
+metadata/_edit_lock_ = true
+
+[node name="bg" type="Sprite2D" parent="."]
+editor_description = "目前想法是天空背景
+且游戏住界面与其接近"
+texture = ExtResource("1")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="v_box_container" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 513.0
+offset_top = 348.0
+offset_right = 641.0
+offset_bottom = 426.0
+theme_override_constants/separation = 16
+alignment = 1
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="level_selector" type="Button" parent="v_box_container"]
+editor_description = "进入关卡选择器"
+layout_mode = 2
+text = "Level Selector"
+
+[node name="quit" type="Button" parent="v_box_container"]
+editor_description = "按下：退出游戏"
+layout_mode = 2
+text = "Quit"
+
+[node name="expand_or_collapse" type="Button" parent="."]
+editor_description = "展开和收起下方列表"
+layout_mode = 0
+offset_left = 1059.0
+offset_top = 202.0
+offset_right = 1144.0
+offset_bottom = 233.0
+text = "Collapse"
+script = ExtResource("2")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="v_box_container2" type="VBoxContainer" parent="expand_or_collapse"]
+editor_description = "放置最常用的窗口按钮
+不超过7个"
+layout_mode = 0
+offset_top = 56.0
+offset_right = 85.0
+offset_bottom = 312.0
+theme_override_constants/separation = 16
+
+[node name="settings" type="Button" parent="expand_or_collapse/v_box_container2"]
+layout_mode = 2
+text = "Settings"
+
+[node name="charactor" type="Button" parent="expand_or_collapse/v_box_container2"]
+layout_mode = 2
+text = "Charactor"
+
+[node name="Button" type="Button" parent="expand_or_collapse/v_box_container2"]
+layout_mode = 2
+text = "Nothing"
+
+[node name="Button2" type="Button" parent="expand_or_collapse/v_box_container2"]
+layout_mode = 2
+text = "Nothing"
+
+[node name="Button3" type="Button" parent="expand_or_collapse/v_box_container2"]
+layout_mode = 2
+text = "Nothing"
+
+[node name="Button4" type="Button" parent="expand_or_collapse/v_box_container2"]
+layout_mode = 2
+text = "Nothing"
+
+[node name="Button5" type="Button" parent="expand_or_collapse/v_box_container2"]
+layout_mode = 2
+text = "Nothing"
+
+[node name="open_bilibili" type="Button" parent="."]
+editor_description = "前往我的B站主页
+只是为了方便"
+layout_mode = 0
+offset_left = 1024.0
+offset_top = 608.0
+offset_right = 1144.0
+offset_bottom = 639.0
+text = "Open Bilibili"
+script = ExtResource("4_dmx0f")
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="v_box_container/level_selector" to="." method="_on_level_selector_pressed"]
+[connection signal="pressed" from="v_box_container/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="expand_or_collapse" to="expand_or_collapse" method="_on_expand_or_collapse_pressed"]
+[connection signal="pressed" from="open_bilibili" to="open_bilibili" method="_on_pressed"]
